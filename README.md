@@ -54,6 +54,9 @@ For more parameters you should have a look at ...
 | `passbolt.config.email.timeout` | Email server timeout | `30` |
 | `passbolt.config.email.username` | Username for email server auth | `username` |
 | `passbolt.config.email.password` | Password for email server auth | `password` |
+| `passbolt.config.email.username_secret` | Username for email server auth from a secret, for example from bitnami sealed secrets | `username` |
+| `passbolt.config.email.password_secret` | Password for email server auth from a secret, for example from bitnami sealed secrets | `password` |
+
 | `passbolt.config.livenessProbe.failureThreshold` | failureThreshold for livenessProbe | `3` |
 | `passbolt.config.livenessProbe.successThreshold` | successThreshold for livenessProbe | `1` |
 | `passbolt.config.livenessProbe.periodSeconds` | periodSeconds for livenessProbe | `10` |

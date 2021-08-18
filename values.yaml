@@ -50,6 +50,8 @@ passbolt:
       timeout: 30
       username: username
       password: password
+      #username_secret: my-username-secret
+      #username_password: my-username-secret
     livenessProbe:
       failureThreshold: 3
       successThreshold: 1

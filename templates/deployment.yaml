@@ -55,13 +55,29 @@ spec:
           {{- end }}
           - name: EMAIL_TRANSPORT_DEFAULT_TIMEOUT
             value: {{ .Values.passbolt.config.email.timeout | quote }}
-          {{- if .Values.passbolt.config.email.username }}
+
+          {{- if .Values.passbolt.config.email.username_secret }}
+          - name: EMAIL_TRANSPORT_DEFAULT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.passbolt.config.email.username_secret }}
+                key: data
+          {{- else if .Values.passbolt.config.email.username }}
           - name: EMAIL_TRANSPORT_DEFAULT_USERNAME
             value: {{ .Values.passbolt.config.email.username }}
+          {{- end }}
+
+          {{- if .Values.passbolt.config.email.password_secret }}
+          - name: EMAIL_TRANSPORT_DEFAULT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: {{ .Values.passbolt.config.email.password_secret }}
+                key: data
+          {{- else if .Values.passbolt.config.email.password }}
           - name: EMAIL_TRANSPORT_DEFAULT_PASSWORD
             value: {{ .Values.passbolt.config.email.password }}
           {{- end }}
-          {{- end }}
+
           - name: PASSBOLT_REGISTRATION_PUBLIC
             value: {{ .Values.passbolt.config.registration | quote }}
           - name: SECURITY_SALT

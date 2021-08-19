@@ -68,6 +68,8 @@ For more parameters you should have a look at ...
 | `passbolt.config.readinessProbe.initialDelaySeconds` | initialDelaySeconds for readinessProbe | `60` |
 | `passbolt.config.readinessProbe.timeoutSeconds` | timeoutSeconds for readinessProbe | `10` |
 
+:warning: If you decide to get passbolt.config.email.username and password from secrets, the corresponding strings will be ignored if passed.
+
 
 ### Database
 | Parameter | Description | Default |
